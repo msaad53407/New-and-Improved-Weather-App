@@ -1,0 +1,140 @@
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600;700&display=swap");
+
+/* Importing other CSS Files */
+@import url("./sections/summary.css");
+@import url("./sections/hourly-forecast.css");
+@import url("./sections/daily-forecast.css");
+@import url("./sections/responsive.css");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100%;
+  width: 100%;
+  font-family: "Open Sans", sans-serif;
+  font-size: 16px;
+}
+
+:root {
+  --light: #fff;
+  --dark: #000;
+  --grey: #4d4d4d;
+  --light-grey: #4d4d4d81;
+}
+
+body {
+  background-color: var(--light);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+button {
+  outline: none;
+  border: none;
+  cursor: pointer;
+}
+
+input[type="text"] {
+  outline: none;
+  border: none;
+}
+
+.container {
+  width: 100dvw;
+  height: 100dvh;
+  display: flex;
+  translate: 0 10px;
+  overflow-x: hidden !important;
+}
+
+.container__details {
+  width: 65%;
+  height: 100%;
+  display: none;
+  flex-direction: column;
+  position: relative;
+}
+
+.active {
+  display: flex !important;
+}
+
+.container__loading-screen {
+  position: fixed;
+  z-index: 5;
+  display: none;
+  gap: 15px;
+  flex-direction: column;
+  width: 100dvw;
+  height: 100dvh;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--light);
+}
+
+.container__loading-screen span {
+  font-size: 2rem;
+  text-align: center;
+}
+
+.container__loading-screen p {
+  border-top: 2px solid var(--grey);
+  border-radius: 50%;
+  height: 100px;
+  width: 100px;
+}
+
+.container__loading-screen.active p {
+  animation-name: spinner;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  animation-duration: 1s;
+}
+
+.notification-box {
+  width: 250px;
+  height: 60px;
+  border: 1px solid var(--light-grey);
+  position: fixed;
+  top: -70px;
+  margin: 0 auto;
+  left: 40%;
+  border-radius: 18px;
+  transition: all 0.3s linear;
+  color: red;
+  text-align: center;
+  text-transform: capitalize;
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: transparent;
+  backdrop-filter: blur(5px);
+}
+
+.notification-box.active {
+  top: 20px;
+}
+
+@keyframes spinner {
+  0% {
+    transform: rotate(0deg);
+    opacity: 1;
+    width: 100px;
+  }
+  50% {
+    opacity: 0.5;
+  }
+  100% {
+    transform: rotate(360deg);
+    opacity: 1;
+    width: 100px;
+  }
+}
